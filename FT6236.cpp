@@ -35,7 +35,7 @@ boolean FT6236::begin(uint8_t thresh)
     return true;
 }
 
-/* Returns the number of touched */
+/* Returns the number of touches */
 uint8_t FT6236::touched(void)
 {
     uint8_t n = readRegister8(FT6236_REG_NUMTOUCHES);
