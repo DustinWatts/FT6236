@@ -1,0 +1,10 @@
+name=FT6236 Library
+version=1.0.1
+author=Dustin Watts
+maintainer=Dustin Watts<info@dustinwatts.nl>
+sentence=Arduino library for the FocalTech FT6236 touch controller
+paragraph=Arduino library for the FocalTech FT6236 touch controller
+category=Display
+url=https://github.com/DustinWatts/FT6236
+architectures=*
+depends=Wire
