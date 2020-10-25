@@ -8,12 +8,12 @@
 #include "Arduino.h"
 #include <Wire.h>
 
-#define FT6236_ADDR 0x38            // I2C address
-#define FT6236_G_FT5201ID 0xA8      // FocalTech's panel ID
-#define FT6236_REG_NUMTOUCHES 0x02  // Number of touch points
+#define FT6236_ADDR 0x38           // I2C address
+#define FT6236_G_FT5201ID 0xA8     // FocalTech's panel ID
+#define FT6236_REG_NUMTOUCHES 0x02 // Number of touch points
 
-#define FT6236_NUM_X 0x33           // Touch X position
-#define FT6236_NUM_Y 0x34           // Touch Y position
+#define FT6236_NUM_X 0x33 // Touch X position
+#define FT6236_NUM_Y 0x34 // Touch Y position
 
 #define FT6236_REG_MODE 0x00        // Device mode, either WORKING or FACTORY
 #define FT6236_REG_CALIBRATE 0x02   // Calibrate mode
@@ -34,22 +34,23 @@
 class TS_Point
 {
 public:
-    TS_Point(void);
-    TS_Point(int16_t x, int16_t y, int16_t z);
+  TS_Point(void);
+  TS_Point(int16_t x, int16_t y, int16_t z);
 
-    bool operator==(TS_Point);
-    bool operator!=(TS_Point);
+  bool operator==(TS_Point);
+  bool operator!=(TS_Point);
 
-    int16_t x;
-    int16_t y;
-    int16_t z;
+  int16_t x;
+  int16_t y;
+  int16_t z;
 };
 
-class FT6236 {
+class FT6236
+{
 public:
   FT6236(void);
   void debug(void);
-  boolean begin(uint8_t thresh = FT6236_DEFAULT_THRESHOLD);
+  boolean begin(uint8_t thresh = FT6236_DEFAULT_THRESHOLD, uint8_t sda = -1, uint8_t scl = -1);
   uint8_t touched(void);
   TS_Point getPoint(uint8_t n = 0);
 

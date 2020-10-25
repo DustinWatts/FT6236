@@ -17,6 +17,7 @@ void setup(void)
 {
     Serial.begin(9600);
 
+    //begin(40, SDA, SCL) for custom pins
     if (!ts.begin(40))
     {
         Serial.println("Unable to start the capacitive touchscreen.");
