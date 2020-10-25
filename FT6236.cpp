@@ -14,9 +14,16 @@ Inspired by Limor Fried/Ladyada
 FT6236::FT6236() { touches = 0; }
 
 /* Start I2C and check if the FT6236 is found. */
-boolean FT6236::begin(uint8_t thresh)
+boolean FT6236::begin(uint8_t thresh, uint8_t sda, uint8_t scl)
 {
-    Wire.begin();
+    if (sda != -1 && scl != -1)
+    {
+        Wire.begin(sda, scl);
+    }
+    else
+    {
+        Wire.begin();
+    }
 
     // Adjust threshold
     writeRegister8(FT6236_REG_THRESHHOLD, thresh);
@@ -28,8 +35,9 @@ boolean FT6236::begin(uint8_t thresh)
     }
     //Check if our chip has the correct Chip ID.
     uint8_t id = readRegister8(FT6236_REG_CHIPID);
-    if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID)) {
-    return false;
+    if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID))
+    {
+        return false;
     }
 
     return true;
@@ -132,18 +140,21 @@ void FT6236::debug(void)
 
 TS_Point::TS_Point(void) { x = y = z = 0; }
 
-TS_Point::TS_Point(int16_t _x, int16_t _y, int16_t _z) {
-  x = _x;
-  y = _y;
-  z = _z;
+TS_Point::TS_Point(int16_t _x, int16_t _y, int16_t _z)
+{
+    x = _x;
+    y = _y;
+    z = _z;
 }
 
 /* == comparator between two points */
-bool TS_Point::operator==(TS_Point p1) {
-  return ((p1.x == x) && (p1.y == y) && (p1.z == z));
+bool TS_Point::operator==(TS_Point p1)
+{
+    return ((p1.x == x) && (p1.y == y) && (p1.z == z));
 }
 
 /* != comparator netween two points */
-bool TS_Point::operator!=(TS_Point p1) {
-  return ((p1.x != x) || (p1.y != y) || (p1.z != z));
+bool TS_Point::operator!=(TS_Point p1)
+{
+    return ((p1.x != x) || (p1.y != y) || (p1.z != z));
 }
