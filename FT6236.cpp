@@ -14,7 +14,7 @@ Inspired by Limor Fried/Ladyada
 FT6236::FT6236() { touches = 0; }
 
 /* Start I2C and check if the FT6236 is found. */
-boolean FT6236::begin(uint8_t thresh, uint8_t sda, uint8_t scl)
+boolean FT6236::begin(uint8_t thresh, int8_t sda, int8_t scl)
 {
     if (sda != -1 && scl != -1)
     {
@@ -28,7 +28,7 @@ boolean FT6236::begin(uint8_t thresh, uint8_t sda, uint8_t scl)
     // Adjust threshold
     writeRegister8(FT6236_REG_THRESHHOLD, thresh);
 
-    // Check if our chip has the correct Vendor ID
+    //Check if our chip has the correct Vendor ID
     if (readRegister8(FT6236_REG_VENDID) != FT6236_VENDID)
     {
         return false;

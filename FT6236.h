@@ -50,7 +50,7 @@ class FT6236
 public:
   FT6236(void);
   void debug(void);
-  boolean begin(uint8_t thresh = FT6236_DEFAULT_THRESHOLD, uint8_t sda = -1, uint8_t scl = -1);
+  boolean begin(uint8_t thresh = FT6236_DEFAULT_THRESHOLD, int8_t sda = -1, int8_t scl = -1);
   uint8_t touched(void);
   TS_Point getPoint(uint8_t n = 0);
 
