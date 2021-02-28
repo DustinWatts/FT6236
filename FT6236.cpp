@@ -3,7 +3,17 @@ This is a library for the FT6236 touchscreen controller by FocalTech.
 
 The FT6236 and FT6236u work the same way.
 
-Inspired by Limor Fried/Ladyada
+A lot of this library is originally written by Limor Fried/Ladyada.
+
+Because Adafruit invests time and resources providing this open source code,
+please support Adafruit and open-source hardware by purchasing
+products from Adafruit!
+
+@section author Author
+Written by Limor Fried/Ladyada for Adafruit Industries.
+
+@section license License
+MIT license, all text above must be included in any redistribution
 */
 
 #include "Arduino.h"
