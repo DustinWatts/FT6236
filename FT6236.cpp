@@ -45,7 +45,8 @@ boolean FT6236::begin(uint8_t thresh, int8_t sda, int8_t scl)
     }
     //Check if our chip has the correct Chip ID.
     uint8_t id = readRegister8(FT6236_REG_CHIPID);
-    if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID))
+    if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID) &&
+      (id != FT6206_CHIPID))
     {
         return false;
     }

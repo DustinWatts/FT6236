@@ -1,5 +1,5 @@
 name=FT6236 Library
-version=1.0.1
+version=1.0.2
 author=Dustin Watts
 maintainer=Dustin Watts<info@dustinwatts.nl>
 sentence=Arduino library for the FocalTech FT6236 touch controller
