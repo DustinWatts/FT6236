@@ -18,7 +18,7 @@ void setup(void)
     Serial.begin(9600);
 
     //begin(40, SDA, SCL) for custom pins
-    if (!ts.begin(40))
+    if (!ts.begin(40)) //40 in this case represents the sensitivity. Try higer or lower for better response. 
     {
         Serial.println("Unable to start the capacitive touchscreen.");
     }
