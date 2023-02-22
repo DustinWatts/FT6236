@@ -1,5 +1,5 @@
 # FT6236
-Arduino Library for the FocalTech FT6236 touch controller.
+Arduino Library for the FocalTech FT6236 and FT5436 touch controller.
 
 # Datasheet
 
