@@ -11,7 +11,7 @@ to the serial output.
 
 #include <FT6236.h>
 
-FT6236 ts = FT6236();
+FT6236 ts = FT6236(480, 320);   // resolution
 
 void setup(void)
 {
@@ -22,6 +22,7 @@ void setup(void)
     {
         Serial.println("Unable to start the capacitive touchscreen.");
     }
+    setRotation(1);
 }
 
 void loop(void)
