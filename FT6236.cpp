@@ -21,7 +21,12 @@ MIT license, all text above must be included in any redistribution
 #include <Wire.h>
 
 /* New class. */
-FT6236::FT6236() { touches = 0; }
+FT6236::FT6236(uint16_t width, uint16_t height)
+{
+    touches = 0;
+    _touch_width = width;
+    _touch_height = height;
+}
 
 /* Start I2C and check if the FT6236 is found. */
 boolean FT6236::begin(uint8_t thresh, int8_t sda, int8_t scl)
@@ -38,20 +43,25 @@ boolean FT6236::begin(uint8_t thresh, int8_t sda, int8_t scl)
     // Adjust threshold
     writeRegister8(FT6236_REG_THRESHHOLD, thresh);
 
-    //Check if our chip has the correct Vendor ID
+    // Check if our chip has the correct Vendor ID
     if (readRegister8(FT6236_REG_VENDID) != FT6236_VENDID)
     {
         return false;
     }
-    //Check if our chip has the correct Chip ID.
+    // Check if our chip has the correct Chip ID.
     uint8_t id = readRegister8(FT6236_REG_CHIPID);
     if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID) &&
-      (id != FT6206_CHIPID))
+        (id != FT6206_CHIPID))
     {
         return false;
     }
 
     return true;
+}
+
+void FT6236::setRotation(uint8_t rotation)
+{
+    _rotation = rotation;
 }
 
 /* Returns the number of touches */
@@ -71,11 +81,11 @@ TS_Point FT6236::getPoint(uint8_t n)
     readData();
     if ((touches == 0) || (n > 1))
     {
-        return TS_Point(0, 0, 0);
+        return TS_Point(0, 0, 0, _touch_width, _touch_height, _rotation);
     }
     else
     {
-        return TS_Point(touchX[n], touchY[n], 1);
+        return TS_Point(touchX[n], touchY[n], 1, _touch_width, _touch_height, _rotation);
     }
 }
 
@@ -151,8 +161,30 @@ void FT6236::debug(void)
 
 TS_Point::TS_Point(void) { x = y = z = 0; }
 
-TS_Point::TS_Point(int16_t _x, int16_t _y, int16_t _z)
+TS_Point::TS_Point(int16_t _x, int16_t _y, int16_t _z, uint16_t width, uint16_t height, uint8_t rotation)
 {
+    uint16_t t;
+    switch (rotation)
+    {
+    case 0:
+        _x = height - _x;
+        _y = width - _y;
+        break;
+    case 1:
+        t = _x;
+        _x = _y;
+        _y = t;
+        _x = width - _x;
+        break;
+    case 2:
+        break;
+    case 3:
+        t = _x;
+        _x = _y;
+        _y = t;
+        _y = height - _y;
+        break;
+    }
     x = _x;
     y = _y;
     z = _z;
