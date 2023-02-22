@@ -44,14 +44,15 @@ boolean FT6236::begin(uint8_t thresh, int8_t sda, int8_t scl)
     writeRegister8(FT6236_REG_THRESHHOLD, thresh);
 
     // Check if our chip has the correct Vendor ID
-    if (readRegister8(FT6236_REG_VENDID) != FT6236_VENDID)
+    uint8_t id = readRegister8(FT6236_REG_VENDID)
+    if ((id != FT6236_VENDID) && (id != FT5436_VENDID))
     {
         return false;
     }
     // Check if our chip has the correct Chip ID.
-    uint8_t id = readRegister8(FT6236_REG_CHIPID);
+    id = readRegister8(FT6236_REG_CHIPID);
     if ((id != FT6236_CHIPID) && (id != FT6236U_CHIPID) &&
-        (id != FT6206_CHIPID))
+        (id != FT6206_CHIPID) && (id != FT5436_CHIPID))
     {
         return false;
     }

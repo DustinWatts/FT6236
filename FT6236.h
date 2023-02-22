@@ -26,8 +26,10 @@
 #define FT6236_REG_VENDID 0xA8      // FocalTech's panel ID
 
 #define FT6236_VENDID 0x11  // FocalTech's panel ID
+#define FT5436_VENDID 0x79  // FocalTech's panel ID
 #define FT6206_CHIPID 0x06  // FT6206 ID
 #define FT6236_CHIPID 0x36  // FT6236 ID
+#define FT5436_CHIPID 0x54  // FT5436 ID
 #define FT6236U_CHIPID 0x64 // FT6236U ID
 
 #define FT6236_DEFAULT_THRESHOLD 128 // Default threshold for touch detection
