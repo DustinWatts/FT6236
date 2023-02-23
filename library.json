@@ -1,0 +1,30 @@
+{
+    "name": "FT6236",
+    "version": "1.0.2",
+    "description": "Arduino library for the FocalTech FT6236 touch controllere",
+    "keywords": "Touch, screen, display, Touchscreen",
+    "repository":
+    {
+      "type": "git",
+      "url": "https://github.com/DustinWatts/FT6236.git"
+    },
+    "authors":
+    [
+      {
+        "name": "Dustin Watts",
+        "email": "info@dustinwatts.nl",
+        "maintainer": true
+      },
+      {
+        "name": "Jarda Burian",
+        "email": "jarda-burian@hotmail.cz"
+      },
+      {
+        "name": "ladyada"
+      }
+    ],
+    "license": "MIT",
+    "frameworks": "arduino",
+    "platforms": "avr, espressif8266, espressif32, ststm32",
+    "headers": "FT6236.h"
+  }
