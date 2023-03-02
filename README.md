@@ -1,5 +1,10 @@
-# FT6236
-Arduino Library for the FocalTech FT6236 touch controller.
+# Focalteck Touch IC library for Arduino IDE
+
+Arduino IDE library for initially written purely for the the FocalTech FT6236 touch controller. But more IC's are support. At the moment the following IC's are supported:
+
+- FT6236 (ChipID 0x36)
+- FT6206 (ChipID 0x06)
+- FT6236U (ChipID 0x64)
 
 # Datasheet
 
