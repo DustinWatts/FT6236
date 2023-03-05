@@ -57,7 +57,7 @@ public:
   uint8_t touched(void);
   TS_Point getPoint(uint8_t n = 0);
   // Helper functions to make the touch display aware
-	void setRotation(uint8_t rotation);
+  void setRotation(uint8_t rotation);
 
 private:
   void writeRegister8(uint8_t reg, uint8_t val);
