@@ -66,10 +66,10 @@ private:
   void readData(void);
   uint8_t touches;
   uint16_t touchX[2], touchY[2], touchID[2];
-	// Make touch rotation aware:
-	uint8_t _rotation = 0;
-	uint16_t _touch_width = 0;
-	uint16_t _touch_height = 0;
+  // Make touch rotation aware:
+  uint8_t _rotation = 0;
+  uint16_t _touch_width = 0;
+  uint16_t _touch_height = 0;
 };
 
 #endif
