@@ -2,7 +2,7 @@
     "name": "FT6236",
     "version": "1.0.2",
     "description": "Arduino library for the FocalTech FT5436, FT6206, and FT6236 touch controllers",
-    "keywords": "Touch, screen, display, Touchscreen",
+    "keywords": "touch, screen, display, touchscreen, FT5436, FT6206, FT6236",
     "repository":
     {
       "type": "git",
