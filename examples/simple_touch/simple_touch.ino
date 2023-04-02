@@ -22,7 +22,7 @@ void setup(void)
     {
         Serial.println("Unable to start the capacitive touchscreen.");
     }
-    setRotation(1);
+    ts.setRotation(1);
 }
 
 void loop(void)
