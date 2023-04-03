@@ -1,5 +1,5 @@
 # FocalTech Touch IC library for Arduino IDE
-[![](https://badgen.net/github/last-commit/DustinWatts/FT6236)](https://github.com/DustinWatts/FT6236/commits/master)
+[![](https://badgen.net/github/last-commit/DustinWatts/FT6236)](https://github.com/DustinWatts/FT6236/commits/main)
 [![](https://badgen.net/github/release/DustinWatts/FT6236)](https://github.com/DustinWatts/FT6236/releases)
 
 Arduino IDE library for initially written purely for the the FocalTech FT6236 touch controller. But more IC's are supported. At the moment the following IC's are supported:
