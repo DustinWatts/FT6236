@@ -54,14 +54,14 @@ public:
   boolean begin(uint8_t thresh = FT6236_DEFAULT_THRESHOLD, int8_t sda = -1, int8_t scl = -1);
   uint8_t touched(void);
   TS_Point getPoint(uint8_t n = 0);
+  uint8_t touches;
+  uint16_t touchX[2], touchY[2], touchID[2];
 
 private:
   void writeRegister8(uint8_t reg, uint8_t val);
   uint8_t readRegister8(uint8_t reg);
 
   void readData(void);
-  uint8_t touches;
-  uint16_t touchX[2], touchY[2], touchID[2];
 };
 
 #endif
